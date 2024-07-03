@@ -1,0 +1,44 @@
+---
+enum Type {
+    gitHub = "Blog /",
+    twitter = "Writing /",
+    instagram = "CheatSheets /",
+}
+
+const socials = [
+    {
+        name: Type.twitter,
+        url: "https://twitter.com/arifnrrr",
+        color: "text-gray-800 hover:text-gray-600",
+    },
+    {
+        name: Type.gitHub,
+        url: "https://github.com/ArN-1",
+        color: "text-gray-800 hover:text-gray-600",
+    },
+    {
+        name: Type.instagram,
+        url: "cheatsheets/index.html",
+        color: "text-gray-800 hover:text-gray-600",
+    },
+];
+
+const getClass = (type: Type) =>
+    `text-2sm ${socials.find((social) => social.name === type)?.color} transition duration-300 hover:scale-110 animate-zoom-in`;
+---
+
+<div class="grid-cols-3 md:grid-flow-col duration-500">
+    {
+        socials.map((social) => (
+            <a
+                aria-label={social.name}
+                class={getClass(social.name)}
+                href={social.url}
+                target="_blank"
+                rel="nofollow noopner"
+            >
+                {social.name}
+            </a>
+        ))
+    }
+</div>

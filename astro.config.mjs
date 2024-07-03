@@ -9,4 +9,14 @@ export default defineConfig({
 	output: 'hybrid',
 	integrations: [tailwind(), sitemap()],
 	adapter: vercel(),
+	buildOptions: {
+		// Direktori build untuk koleksi Cheat Sheet
+		buildDir: '../public/cheatsheets',
+	},
+
+	// Konfigurasi output HTML
+	outputOptions: {
+		// URL situs untuk halaman HTML yang dihasilkan
+		siteUrl: '/cheatsheets', // Ubah dari 'cheatsheets' ke '/cheatsheets'
+	},
 });

@@ -1,0 +1,12 @@
+[book]
+authors = ["ArN-1"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Cheat Sheet Collections"
+
+[build]
+build-dir = "../public/cheatsheets"
+
+[output.html]
+site-url = "cheatsheets"
