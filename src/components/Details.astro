@@ -4,9 +4,9 @@
  */
 
 enum DetailType {
-	title = 'title',
-	subtitle = 'subtitle',
-	description = 'description',
+	title = "title",
+	subtitle = "subtitle",
+	description = "description",
 }
 
 const details: {
@@ -15,32 +15,34 @@ const details: {
 }[] = [
 	{
 		type: DetailType.title,
-		content: `Hi, I'm Hope`,
+		content: `Hi, I'm Arif`,
 	},
 	{
 		type: DetailType.subtitle,
-		content: 'Lead Data Science Engineer',
+		content: "BackEnd, Machine Learning, And Cyber Security",
 	},
 	{
 		type: DetailType.description,
-		content: 'Exploring tech, one code line at a time. 🚀💻',
+		content: "Exploring tech, one code line at a time. 🚀💻",
 	},
 ];
 
 const getClass = (type: DetailType) => {
 	switch (type) {
 		case DetailType.title:
-			return 'font-sora text-4xl font-bold tracking-wide md:text-5xl animate-fade-up duration-300';
+			return "font-sora text-4xl font-bold tracking-wide md:text-5xl animate-fade-up duration-300";
 		case DetailType.subtitle:
-			return 'text-xs font-light tracking-wide md:text-sm duration-300';
+			return "text-xs font-light tracking-wide md:text-sm duration-300";
 		case DetailType.description:
-			return 'text-sm font-normal tracking-wide md:text-base animate-fade-in duration-300';
+			return "text-sm font-normal tracking-wide md:text-base animate-fade-in duration-300";
 	}
 };
 ---
 
-<div
-	class="grid grid-cols-1 place-content-center place-items-center gap-5"
->
-	{details.map((detail) => <p class={getClass(detail.type)}>{detail.content}</p>)}
+<div class="grid grid-cols-1 place-content-center place-items-center gap-5">
+	{
+		details.map((detail) => (
+			<p class={getClass(detail.type)}>{detail.content}</p>
+		))
+	}
 </div>
