@@ -21,10 +21,6 @@ const details: {
 		type: DetailType.subtitle,
 		content: "BackEnd, Machine Learning, And Cyber Security",
 	},
-	{
-		type: DetailType.description,
-		content: "Exploring tech, one code line at a time. 🚀💻",
-	},
 ];
 
 const getClass = (type: DetailType) => {
@@ -33,8 +29,6 @@ const getClass = (type: DetailType) => {
 			return "font-sora text-4xl font-bold tracking-wide md:text-5xl animate-fade-up duration-300";
 		case DetailType.subtitle:
 			return "text-xs font-light tracking-wide md:text-sm duration-300";
-		case DetailType.description:
-			return "text-sm font-normal tracking-wide md:text-base animate-fade-in duration-300";
 	}
 };
 ---
