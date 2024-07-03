@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Index - Cheat Sheet Collections</title>
+        <title>Modularization - Cheat Sheet Collections</title>
 
 
         <!-- Custom HTML head -->
@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html" class="active">Index</a></li><li class="chapter-item expanded affix "><a href="doc.html">Doc</a></li><li class="chapter-item expanded "><a href="js.html"><strong aria-hidden="true">1.</strong> Java Script</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="run_command_js.html"><strong aria-hidden="true">1.1.</strong> run command</a></li></ol></li><li class="chapter-item expanded "><a href="python.html"><strong aria-hidden="true">2.</strong> Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="modularization.html"><strong aria-hidden="true">2.1.</strong> Modularization</a></li></ol></li><li class="chapter-item expanded "><a href="linux.html"><strong aria-hidden="true">3.</strong> Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="arch.html"><strong aria-hidden="true">3.1.</strong> Arch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="bin.html"><strong aria-hidden="true">3.1.1.</strong> bin</a></li></ol></li><li class="chapter-item expanded "><a href="blackarch.html"><strong aria-hidden="true">3.2.</strong> Black Arch</a></li></ol></li><li class="chapter-item expanded "><a href="editor.html"><strong aria-hidden="true">4.</strong> Editor</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="vim.html"><strong aria-hidden="true">4.1.</strong> VIM</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Index</a></li><li class="chapter-item expanded affix "><a href="doc.html">Doc</a></li><li class="chapter-item expanded "><a href="js.html"><strong aria-hidden="true">1.</strong> Java Script</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="run_command_js.html"><strong aria-hidden="true">1.1.</strong> run command</a></li></ol></li><li class="chapter-item expanded "><a href="python.html"><strong aria-hidden="true">2.</strong> Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="modularization.html" class="active"><strong aria-hidden="true">2.1.</strong> Modularization</a></li></ol></li><li class="chapter-item expanded "><a href="linux.html"><strong aria-hidden="true">3.</strong> Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="arch.html"><strong aria-hidden="true">3.1.</strong> Arch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="bin.html"><strong aria-hidden="true">3.1.1.</strong> bin</a></li></ol></li><li class="chapter-item expanded "><a href="blackarch.html"><strong aria-hidden="true">3.2.</strong> Black Arch</a></li></ol></li><li class="chapter-item expanded "><a href="editor.html"><strong aria-hidden="true">4.</strong> Editor</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="vim.html"><strong aria-hidden="true">4.1.</strong> VIM</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -173,14 +173,59 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="index"><a class="header" href="#index">Index</a></h1>
+                        <h1 id="setup-untuk-upload-package-di-pypi"><a class="header" href="#setup-untuk-upload-package-di-pypi">SetUp untuk upload package di <code>pypi</code></a></h1>
+<h2 id="setuppy"><a class="header" href="#setuppy">setup.py</a></h2>
+<pre><code class="language-python">import pathlib
+import setuptools
+
+setuptools.setup(
+    name="latestearthquake",
+    version="0.0.1",
+        author="",
+    author_email="",
+    description="This package will get the latest earthquake from BMKG",
+    long_description=pathlib.Path("README.md").read_text(),
+    long_description_content_type="text/markdown",
+    url="https://github.com/teolloDEV/Indonesia-last-earthquake",
+    license = "The Unlicense",
+    project_urls={
+        "Website": "",
+    },
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+        "Operating System :: OS Independent",
+        "Development Status :: 5 - Production/Stable",
+    ],
+    # package_dir={"": "src"},
+    # packages=setuptools.find_packages(where="src"),
+    packages=setuptools.find_packages(),
+    python_requires="&gt;=3.8",
+
+
+)
+
+</code></pre>
+<h2 id="deploysh"><a class="header" href="#deploysh">deploy.sh</a></h2>
+<pre><code class="language-python">
+#!/bin/bash
+chmod +x deploy.sh
+
+python3 -m build
+python3 -m twine upload --repository pypi dist/*
+
+
+</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="python.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
-                            <a rel="next prefetch" href="doc.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="linux.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -190,8 +235,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="python.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
-                    <a rel="next prefetch" href="doc.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="linux.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Index - Cheat Sheet Collections</title>
+        <title>run command - Cheat Sheet Collections</title>
 
 
         <!-- Custom HTML head -->
@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html" class="active">Index</a></li><li class="chapter-item expanded affix "><a href="doc.html">Doc</a></li><li class="chapter-item expanded "><a href="js.html"><strong aria-hidden="true">1.</strong> Java Script</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="run_command_js.html"><strong aria-hidden="true">1.1.</strong> run command</a></li></ol></li><li class="chapter-item expanded "><a href="python.html"><strong aria-hidden="true">2.</strong> Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="modularization.html"><strong aria-hidden="true">2.1.</strong> Modularization</a></li></ol></li><li class="chapter-item expanded "><a href="linux.html"><strong aria-hidden="true">3.</strong> Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="arch.html"><strong aria-hidden="true">3.1.</strong> Arch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="bin.html"><strong aria-hidden="true">3.1.1.</strong> bin</a></li></ol></li><li class="chapter-item expanded "><a href="blackarch.html"><strong aria-hidden="true">3.2.</strong> Black Arch</a></li></ol></li><li class="chapter-item expanded "><a href="editor.html"><strong aria-hidden="true">4.</strong> Editor</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="vim.html"><strong aria-hidden="true">4.1.</strong> VIM</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Index</a></li><li class="chapter-item expanded affix "><a href="doc.html">Doc</a></li><li class="chapter-item expanded "><a href="js.html"><strong aria-hidden="true">1.</strong> Java Script</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="run_command_js.html" class="active"><strong aria-hidden="true">1.1.</strong> run command</a></li></ol></li><li class="chapter-item expanded "><a href="python.html"><strong aria-hidden="true">2.</strong> Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="modularization.html"><strong aria-hidden="true">2.1.</strong> Modularization</a></li></ol></li><li class="chapter-item expanded "><a href="linux.html"><strong aria-hidden="true">3.</strong> Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="arch.html"><strong aria-hidden="true">3.1.</strong> Arch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="bin.html"><strong aria-hidden="true">3.1.1.</strong> bin</a></li></ol></li><li class="chapter-item expanded "><a href="blackarch.html"><strong aria-hidden="true">3.2.</strong> Black Arch</a></li></ol></li><li class="chapter-item expanded "><a href="editor.html"><strong aria-hidden="true">4.</strong> Editor</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="vim.html"><strong aria-hidden="true">4.1.</strong> VIM</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -173,14 +173,68 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="index"><a class="header" href="#index">Index</a></h1>
+                        <h1 id="run-command"><a class="header" href="#run-command">run command</a></h1>
+<h2 id="pushcjs"><a class="header" href="#pushcjs"><code>push.cjs</code></a></h2>
+<pre><code class="language-javascript">
+const { exec } = require("child_process");
+
+async function runCommand(cmd) {
+    console.log('\x1b[32m%s\x1b[0m', "+ " + cmd);
+    return new Promise((resolve, reject) =&gt; {
+        exec(cmd, (error, stdout, stderr) =&gt; {
+            if (error) {
+                reject(`Error executing command: ${cmd}\n${error.message}`);
+            } else {
+                resolve(stdout);
+            }
+        });
+    });
+}
+
+async function main() {
+    try {
+        const jakartaTime = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' });
+        const commitMessage = `Update at ${jakartaTime}`;
+
+        await runCommand("./mdbook build cheatsheets");
+        await runCommand("git add .");
+        await runCommand(`git commit -m "${commitMessage}"`);
+        await runCommand("git push origin main");
+
+        console.log("Deployment successful.");
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+main();
+
+</code></pre>
+<h2 id="packagejson"><a class="header" href="#packagejson"><code>package.json</code></a></h2>
+<pre><code class="language-javascript">
+{
+      "scripts": {
+   
+    "push": "node push.cjs"
+  },
+}
+
+</code></pre>
+<h2 id="run"><a class="header" href="#run"><code>run</code></a></h2>
+<pre><code class="language-bash">
+yarn push
+
+</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="js.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
-                            <a rel="next prefetch" href="doc.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="python.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -190,8 +244,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="js.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
-                    <a rel="next prefetch" href="doc.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="python.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
