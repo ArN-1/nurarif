@@ -339,6 +339,7 @@ password = [token API Key]
 <pre><code class="language-python">
 #!/bin/bash
 chmod +x deploy.sh
+rmdir dist /S /Q
 
 python3 -m build
 python3 -m twine upload --repository pypi dist/*
@@ -348,6 +349,8 @@ python3 -m twine upload --repository pypi dist/*
 <h3 id="windows"><a class="header" href="#windows">Windows</a></h3>
 <p>deploy.bat</p>
 <pre><code class="language-bash">@echo off
+
+rmdir dist /S /Q
 
 python3 -m build
 python3 -m twine upload --repository pypi dist*/

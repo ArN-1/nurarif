@@ -102,6 +102,7 @@ ___
 
 #!/bin/bash
 chmod +x deploy.sh
+rmdir dist /S /Q
 
 python3 -m build
 python3 -m twine upload --repository pypi dist/*
@@ -115,6 +116,8 @@ deploy.bat
 
 ```bash
 @echo off
+
+rmdir dist /S /Q
 
 python3 -m build
 python3 -m twine upload --repository pypi dist*/
