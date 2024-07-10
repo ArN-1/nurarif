@@ -110,6 +110,14 @@ python3 -m twine upload --repository pypi dist/*
 
 ```
 
+- run
+
+```bash
+
+./deploy.sh
+
+```
+
 ### Windows
 
 deploy.bat
