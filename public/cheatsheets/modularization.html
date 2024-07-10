@@ -252,14 +252,19 @@ password = [token API Key]
 <ul>
 <li>deploy.sh</li>
 </ul>
+<blockquote>
+<p>Berikan izin eksekusi pada deploy.sh jika belum memiliki izin</p>
+</blockquote>
+<pre><code class="language-bash">chmod +x deploy.sh
+</code></pre>
 <pre><code class="language-python">
 #!/bin/bash
-chmod +x deploy.sh
-rmdir dist /S /Q
+
+rm -rf dist
 
 python3 -m build
-python3 -m twine upload --repository pypi dist/*
 
+python3 -m twine upload --repository pypi dist/*
 
 </code></pre>
 <ul>

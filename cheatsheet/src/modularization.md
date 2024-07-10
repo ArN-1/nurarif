@@ -98,15 +98,22 @@ ___
 
 - deploy.sh
 
+> Berikan izin eksekusi pada deploy.sh jika belum memiliki izin
+
+```bash
+chmod +x deploy.sh
+```
+
+
 ```python
 
 #!/bin/bash
-chmod +x deploy.sh
-rmdir dist /S /Q
+
+rm -rf dist
 
 python3 -m build
-python3 -m twine upload --repository pypi dist/*
 
+python3 -m twine upload --repository pypi dist/*
 
 ```
 
