@@ -28,6 +28,10 @@ setuptools.setup(
     # package_dir={"": "src"},
     # packages=setuptools.find_packages(where="src"),
     packages=setuptools.find_packages(),
+    install_requires=[
+        '',
+
+    ],
     python_requires=">=3.8",
 
 
@@ -35,7 +39,64 @@ setuptools.setup(
 
 ```
 
-## deploy.sh
+## Generating Distribution Archive
+___
+
+```python
+python3 -m pip install --upgrade build
+
+```
+
+```python
+python3 -m build
+```
+
+```python
+dist/
+├── example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
+└── example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
+```
+## Gunakan token API
+___
+
+- SetUp `nano ~/.pypirc`
+
+```python
+
+[pypi]
+
+username = __token__
+password = [token API Key]
+
+```
+
+
+
+## Uploading the distribution archives
+___
+
+```python
+python3 -m pip install --upgrade twine
+
+```
+
+```python
+python3 -m twine upload --repository pypi dist/*
+
+```
+
+## Update
+___
+
+- Build Paket : ` python setup.py sdist bdist_wheel `
+- Upload : `twine upload dist/*`
+
+
+## Automation
+
+### Linux
+
+- deploy.sh
 
 ```python
 
@@ -45,5 +106,17 @@ chmod +x deploy.sh
 python3 -m build
 python3 -m twine upload --repository pypi dist/*
 
+
+```
+
+### Windows
+
+deploy.bat
+
+```bash
+@echo off
+
+python3 -m build
+python3 -m twine upload --repository pypi dist*/
 
 ```

@@ -7,6 +7,8 @@
 - [Python](./python.md)
     - [Modularization](./modularization.md)
 - [Linux](./linux.md)
+    - [Command](./cmd.md)
+        - [chmod](./chmod.md)
     - [Arch](./arch.md)
         - [bin](./bin.md)
     - [Black Arch](./blackarch.md)

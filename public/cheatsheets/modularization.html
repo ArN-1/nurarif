@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Index</a></li><li class="chapter-item expanded affix "><a href="doc.html">Doc</a></li><li class="chapter-item expanded "><a href="js.html"><strong aria-hidden="true">1.</strong> Java Script</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="run_command_js.html"><strong aria-hidden="true">1.1.</strong> run command</a></li></ol></li><li class="chapter-item expanded "><a href="python.html"><strong aria-hidden="true">2.</strong> Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="modularization.html" class="active"><strong aria-hidden="true">2.1.</strong> Modularization</a></li></ol></li><li class="chapter-item expanded "><a href="linux.html"><strong aria-hidden="true">3.</strong> Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="arch.html"><strong aria-hidden="true">3.1.</strong> Arch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="bin.html"><strong aria-hidden="true">3.1.1.</strong> bin</a></li></ol></li><li class="chapter-item expanded "><a href="blackarch.html"><strong aria-hidden="true">3.2.</strong> Black Arch</a></li></ol></li><li class="chapter-item expanded "><a href="editor.html"><strong aria-hidden="true">4.</strong> Editor</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="vim.html"><strong aria-hidden="true">4.1.</strong> VIM</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Index</a></li><li class="chapter-item expanded affix "><a href="doc.html">Doc</a></li><li class="chapter-item expanded "><a href="js.html"><strong aria-hidden="true">1.</strong> Java Script</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="run_command_js.html"><strong aria-hidden="true">1.1.</strong> run command</a></li></ol></li><li class="chapter-item expanded "><a href="python.html"><strong aria-hidden="true">2.</strong> Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="modularization.html" class="active"><strong aria-hidden="true">2.1.</strong> Modularization</a></li></ol></li><li class="chapter-item expanded "><a href="linux.html"><strong aria-hidden="true">3.</strong> Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="cmd.html"><strong aria-hidden="true">3.1.</strong> Command</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chmod.html"><strong aria-hidden="true">3.1.1.</strong> chmod</a></li></ol></li><li class="chapter-item expanded "><a href="arch.html"><strong aria-hidden="true">3.2.</strong> Arch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="bin.html"><strong aria-hidden="true">3.2.1.</strong> bin</a></li></ol></li><li class="chapter-item expanded "><a href="blackarch.html"><strong aria-hidden="true">3.3.</strong> Black Arch</a></li></ol></li><li class="chapter-item expanded "><a href="editor.html"><strong aria-hidden="true">4.</strong> Editor</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="vim.html"><strong aria-hidden="true">4.1.</strong> VIM</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -200,13 +200,58 @@ setuptools.setup(
     # package_dir={"": "src"},
     # packages=setuptools.find_packages(where="src"),
     packages=setuptools.find_packages(),
+    install_requires=[
+        '',
+
+    ],
     python_requires="&gt;=3.8",
 
 
 )
 
 </code></pre>
-<h2 id="deploysh"><a class="header" href="#deploysh">deploy.sh</a></h2>
+<h2 id="generating-distribution-archive"><a class="header" href="#generating-distribution-archive">Generating Distribution Archive</a></h2>
+<hr />
+<pre><code class="language-python">python3 -m pip install --upgrade build
+
+</code></pre>
+<pre><code class="language-python">python3 -m build
+</code></pre>
+<pre><code class="language-python">dist/
+├── example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
+└── example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
+</code></pre>
+<h2 id="gunakan-token-api"><a class="header" href="#gunakan-token-api">Gunakan token API</a></h2>
+<hr />
+<ul>
+<li>SetUp <code>nano ~/.pypirc</code></li>
+</ul>
+<pre><code class="language-python">
+[pypi]
+
+username = __token__
+password = [token API Key]
+
+</code></pre>
+<h2 id="uploading-the-distribution-archives"><a class="header" href="#uploading-the-distribution-archives">Uploading the distribution archives</a></h2>
+<hr />
+<pre><code class="language-python">python3 -m pip install --upgrade twine
+
+</code></pre>
+<pre><code class="language-python">python3 -m twine upload --repository pypi dist/*
+
+</code></pre>
+<h2 id="update"><a class="header" href="#update">Update</a></h2>
+<hr />
+<ul>
+<li>Build Paket : <code>python setup.py sdist bdist_wheel</code></li>
+<li>Upload : <code>twine upload dist/*</code></li>
+</ul>
+<h2 id="automation"><a class="header" href="#automation">Automation</a></h2>
+<h3 id="linux"><a class="header" href="#linux">Linux</a></h3>
+<ul>
+<li>deploy.sh</li>
+</ul>
 <pre><code class="language-python">
 #!/bin/bash
 chmod +x deploy.sh
@@ -214,6 +259,14 @@ chmod +x deploy.sh
 python3 -m build
 python3 -m twine upload --repository pypi dist/*
 
+
+</code></pre>
+<h3 id="windows"><a class="header" href="#windows">Windows</a></h3>
+<p>deploy.bat</p>
+<pre><code class="language-bash">@echo off
+
+python3 -m build
+python3 -m twine upload --repository pypi dist*/
 
 </code></pre>
 

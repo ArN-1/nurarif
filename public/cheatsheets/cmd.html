@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Python - Cheat Sheet Collections</title>
+        <title>Command - Cheat Sheet Collections</title>
 
 
         <!-- Custom HTML head -->
@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Index</a></li><li class="chapter-item expanded affix "><a href="doc.html">Doc</a></li><li class="chapter-item expanded "><a href="js.html"><strong aria-hidden="true">1.</strong> Java Script</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="run_command_js.html"><strong aria-hidden="true">1.1.</strong> run command</a></li></ol></li><li class="chapter-item expanded "><a href="python.html" class="active"><strong aria-hidden="true">2.</strong> Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="modularization.html"><strong aria-hidden="true">2.1.</strong> Modularization</a></li></ol></li><li class="chapter-item expanded "><a href="linux.html"><strong aria-hidden="true">3.</strong> Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="cmd.html"><strong aria-hidden="true">3.1.</strong> Command</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chmod.html"><strong aria-hidden="true">3.1.1.</strong> chmod</a></li></ol></li><li class="chapter-item expanded "><a href="arch.html"><strong aria-hidden="true">3.2.</strong> Arch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="bin.html"><strong aria-hidden="true">3.2.1.</strong> bin</a></li></ol></li><li class="chapter-item expanded "><a href="blackarch.html"><strong aria-hidden="true">3.3.</strong> Black Arch</a></li></ol></li><li class="chapter-item expanded "><a href="editor.html"><strong aria-hidden="true">4.</strong> Editor</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="vim.html"><strong aria-hidden="true">4.1.</strong> VIM</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Index</a></li><li class="chapter-item expanded affix "><a href="doc.html">Doc</a></li><li class="chapter-item expanded "><a href="js.html"><strong aria-hidden="true">1.</strong> Java Script</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="run_command_js.html"><strong aria-hidden="true">1.1.</strong> run command</a></li></ol></li><li class="chapter-item expanded "><a href="python.html"><strong aria-hidden="true">2.</strong> Python</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="modularization.html"><strong aria-hidden="true">2.1.</strong> Modularization</a></li></ol></li><li class="chapter-item expanded "><a href="linux.html"><strong aria-hidden="true">3.</strong> Linux</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="cmd.html" class="active"><strong aria-hidden="true">3.1.</strong> Command</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chmod.html"><strong aria-hidden="true">3.1.1.</strong> chmod</a></li></ol></li><li class="chapter-item expanded "><a href="arch.html"><strong aria-hidden="true">3.2.</strong> Arch</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="bin.html"><strong aria-hidden="true">3.2.1.</strong> bin</a></li></ol></li><li class="chapter-item expanded "><a href="blackarch.html"><strong aria-hidden="true">3.3.</strong> Black Arch</a></li></ol></li><li class="chapter-item expanded "><a href="editor.html"><strong aria-hidden="true">4.</strong> Editor</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="vim.html"><strong aria-hidden="true">4.1.</strong> VIM</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -173,17 +173,27 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="python"><a class="header" href="#python">Python</a></h1>
-
+                        <h1 id="command"><a class="header" href="#command">Command</a></h1>
+<h2 id="izin-di-linux"><a class="header" href="#izin-di-linux">Izin Di Linux</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Perintah</th><th>Deskripsi</th><th>Contoh Penggunaan</th></tr></thead><tbody>
+<tr><td><code>chmod</code></td><td>Mengubah mode izin (permissions) dari file atau direktori.</td><td><code>chmod 755 namafile</code></td></tr>
+<tr><td><code>chown</code></td><td>Mengubah kepemilikan (owner) dari file atau direktori.</td><td><code>chown user1 namafile</code></td></tr>
+<tr><td><code>chgrp</code></td><td>Mengubah grup pemilik (group ownership) dari file atau direktori.</td><td><code>chgrp group1 namafile</code></td></tr>
+<tr><td><code>umask</code></td><td>Mengatur masker izin default untuk file yang baru dibuat.</td><td><code>umask 022</code></td></tr>
+<tr><td><code>sudo</code></td><td>Menjalankan perintah dengan hak akses superuser (root).</td><td><code>sudo chown root:root namafile</code></td></tr>
+<tr><td><code>su</code></td><td>Beralih ke pengguna lain atau ke root user.</td><td><code>su - username</code></td></tr>
+<tr><td><code>passwd</code></td><td>Mengubah kata sandi pengguna.</td><td><code>passwd</code></td></tr>
+</tbody></table>
+</div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="run_command_js.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="linux.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="modularization.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="chmod.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -193,11 +203,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="run_command_js.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="linux.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="modularization.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="chmod.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
