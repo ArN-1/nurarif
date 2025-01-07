@@ -5,12 +5,20 @@ import Socials from "../components/Socials.astro";
 import Layout from "../layouts/Layout.astro";
 import Link from "../components/Link.astro";
 
-/**
- * Replace the values below with your own information
- */
 const title = "Nur Arif";
 const siteName = "Nur Arif";
 const siteDescription = "Programming From Indonesia";
+
+// Fungsi untuk memanggil API log IP
+const logVisitorIP = async () => {
+	await fetch("/api/log-ip")
+		.then((response) => response.json())
+		.then((data) => console.log(data.message))
+		.catch((error) => console.error("Error logging IP:", error));
+};
+
+// Memanggil fungsi logVisitorIP ketika halaman dimuat
+logVisitorIP();
 ---
 
 <Layout title={title} siteName={siteName} siteDescription={siteDescription}>
