@@ -122,10 +122,13 @@ However, if we dig deeper, programming has philosophical roots that align with m
 
 		<script>
 			const clock = document.getElementById("clock");
-			setInterval(() => {
-				const now = new Date();
-				clock.textContent = now.toLocaleTimeString("en-US", { hour12: false });
-			}, 1000);
+if (clock) {
+	setInterval(() => {
+		const now = new Date();
+		clock.textContent = now.toLocaleTimeString("en-US", { hour12: false });
+	}, 1000);
+}
+
 		</script>
 	</body>
 </html>
