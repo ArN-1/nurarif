@@ -49,7 +49,7 @@ const { title, siteName, siteDescription } = Astro.props;
 				<!-- Profile / Intro -->
 				<section class="col-span-full md:col-span-2 lg:col-span-2 row-span-2 bg-white/90 border border-zinc-300 rounded-2xl p-6 shadow-md backdrop-blur-md">
 					<p class="uppercase text-sm text-zinc-500">Welcome</p>
-					<h1 class="text-2xl font-bold mt-1">
+					<h1 class="text-6xl font-bold mt-1">
 						Hi, I'm <span class="text-zinc-800">Arif</span>
 					</h1>
 					<h1 class="text-2xl font-bold mt-1">
@@ -75,10 +75,49 @@ However, if we dig deeper, programming has philosophical roots that align with m
 
 </p>
 
-					<div class="mt-4 flex gap-3">
-						<Socials />
-					</div>
+					<div class="mt-4 flex gap-3 justify-end">
+	<Socials />
+</div>
+
 				</section>
+
+				<!-- About -->
+<section class="bg-white/90 border border-zinc-300 rounded-2xl p-6 col-span-full lg:col-span-2 backdrop-blur-md relative overflow-visible">
+	<!-- Avatar mengambang di kanan atas -->
+	<div class="absolute right-6 top-6 z-10 pointer-events-none">
+		<Avatar />
+	</div>
+
+	<!-- Teks dengan padding kanan terbatas kecuali paragraf terakhir -->
+	<div class="text-zinc-600 text-sm space-y-4">
+		<h1 class="text-4xl font-semibold mb-4 text-black">Who am I</h1>
+
+		<!-- Paragraf biasa, tetap menghindari avatar -->
+		<p class="md:pr-44">
+			Penetration tester with a focus on system exploitation based on an understanding of backend architecture, scripting, and reverse engineering. Combining static and dynamic analysis to understand how security vulnerabilities arise from application logic to the system.
+		</p>
+
+		<p class="md:pr-44">
+			Leveraging backend experience to understand authentication flows, access controls, and RESTful API architectures that are vulnerable to manipulation. Using the Python programming language to build exploits, automate audit processes, and simulate client-server interactions.
+		</p>
+
+		<!-- Paragraf terakhir: full width sampai menimpa avatar -->
+		<p class="relative z-0">
+			Bash scripting is the foundation for rapid testing in audit testing and automation. Using Reverse Engineering to uncover hidden logic and map exploitable execution flows to identify vulnerabilities that lack open documentation.
+		</p>
+				<p class="relative z-0">
+On the system side, accustomed to hardening, configuration audits, understanding how permission errors and service exposures occur. Studying blockchain security, including smart contract vulnerabilities and transaction manipulation techniques in Web3. Combining offensive approaches, scripting, and reverse engineering to not only dismantle but also understand how to strengthen the system from within.
+</p>
+	<div class="mt-6 flex justify-end space-x-6 text-sm font-bold text-black">
+  <a href="https://dev.nurarif.com/" target="_blank" rel="noopener noreferrer" class="hover:underline">WriteUp</a>
+  <a href="/project" target="_blank" rel="noopener noreferrer" class="hover:underline">Project</a>
+  <a href="/blog" target="_blank" rel="noopener noreferrer" class="hover:underline">Blog</a>
+  <a href="/noted" target="_blank" rel="noopener noreferrer" class="hover:underline">Noted</a>
+</div>
+
+
+</section>
+
 
 				<!-- About -->
 				<section class="bg-white/90 border border-zinc-300 rounded-2xl p-6 col-span-full lg:col-span-2 backdrop-blur-md">
@@ -87,36 +126,31 @@ However, if we dig deeper, programming has philosophical roots that align with m
 							<h2 class="text-lg font-semibold mb-2">About Me</h2>
 							<ul class="text-sm text-zinc-600 list-disc pl-4 space-y-1">
 								<li>Python / Flask / Django</li>
+								<li>Bash Scripting</li>
+								<li>Linux</li>
 								<li>Web3 & Smart Contracts</li>
 								<li>Cybersecurity & APIs</li>
 							</ul>
 						</div>
 						<div class="flex justify-end">
-							<Avatar />
+							
+				<!-- Time -->
+				<section class="bg-white/90 border border-zinc-300 rounded-xl p-4 text-center backdrop-blur-md w-full max-w-xs mx-auto flex flex-col justify-center h-40">
+	<h2 class="text-base font-semibold mb-1 text-zinc-700">Time Zone</h2>
+	<p class="font-mono text-3xl" id="clock">--:--:--</p>
+</section>
 						</div>
 					</div>
 				</section>
-
-				<!-- Contact -->
-				<section class="bg-white/90 border border-zinc-300 rounded-2xl p-6 backdrop-blur-md">
-					<h2 class="font-semibold mb-1">Let’s work together!</h2>
-					<p class="text-sm text-zinc-600 italic">contact@youremail.com</p>
-					<p class="text-xs text-zinc-500 mt-2">Socials:</p>
-					<ul class="text-sm text-zinc-700 space-y-1">
-						<li>LinkedIn</li>
-						<li>GitHub</li>
-						<li>Discord</li>
-					</ul>
-				</section>
 				
 
-				<!-- Time -->
-				<section class="bg-white/90 border border-zinc-300 rounded-2xl p-6 text-center backdrop-blur-md">
-					<h2 class="text-xl mb-5">Time Zone</h2>
-					<p class="font-mono text-5xl" id="clock">--:--:--</p>
-				</section>
-
 			</main>
+			<!-- Footer -->
+<footer class="mt-10  py-6 text-center text-sm text-zinc-500 ">
+  <p>&copy; 2025 Nur Arif . All rights reserved.</p>
+  
+</footer>
+
 		</div>
 
 		<script>
