@@ -1,5 +1,7 @@
 ---
 import { AstroFont } from "astro-font";
+import Avatar from "../components/Avatar.astro";
+import Socials from "../components/Socials.astro";
 
 interface Props {
 	title: string;
@@ -11,10 +13,9 @@ const { title, siteName, siteDescription } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="font-sora scroll-smooth">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
@@ -22,6 +23,7 @@ const { title, siteName, siteDescription } = Astro.props;
 		<meta property="og:site_name" content={siteName} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={siteDescription} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<AstroFont
 			config={[
@@ -38,15 +40,92 @@ const { title, siteName, siteDescription } = Astro.props;
 			]}
 		/>
 	</head>
-	<body>
-		<div
-			class="bg-zinc-100 bg-horizonAnimated bg-cover bg-scroll bg-center bg-no-repeat"
-		>
-			<div
-				class="grid min-h-dvh grid-cols-1 place-content-center place-items-center gap-7"
-			>
-				<slot />
-			</div>
+
+	<body class="bg-zinc-100 text-zinc-800 font-sora overflow-y-auto">
+		<!-- Background -->
+		<div class="bg-horizonAnimated bg-cover bg-fixed bg-center bg-no-repeat min-h-screen">
+			<main class="grid gap-5 p-4 md:p-6 lg:p-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-[1900px] mx-auto">
+
+				<!-- Profile / Intro -->
+				<section class="col-span-full md:col-span-2 lg:col-span-2 row-span-2 bg-white/90 border border-zinc-300 rounded-2xl p-6 shadow-md backdrop-blur-md">
+					<p class="uppercase text-sm text-zinc-500">Welcome</p>
+					<h1 class="text-2xl font-bold mt-1">
+						Hi, I'm <span class="text-zinc-800">Arif</span>
+					</h1>
+					<h1 class="text-2xl font-bold mt-1">
+						 <span class="text-zinc-800">Programmer</span> from Indonesia
+					</h1>
+					<p class="text-zinc-600 text-sm mt-2">
+						Programming isn't just about writing instructions for computers to work for us. It's a form of modeling the complex world through systematic, structured, and reproducible representations. Within every line of code is an understanding of a problem—how it maps reality, simplifies it, and then transforms it into something a machine can execute. Thus, programming is fundamentally a way of thinking involving abstraction, logic, and adherence to structure.
+					</p>
+					<p class="text-zinc-600 text-sm mt-2">
+When someone programs, they are building a theory in their head. That theory isn't always formal, but it always has rules, assumptions, and constraints. The code is simply the external medium of that theory. Failures in programming often lie not in syntax or technology, but in a failure to fully understand the problem—a mistake in constructing a mental model. Therefore, many say that debugging isn't about fixing computer errors, but about correcting our own thinking errors.
+					</p>
+										<p class="text-zinc-600 text-sm mt-2">
+Programming trains awareness of complexity. We learn that not everything can be solved at once. Therefore, modular, iterative, and scalable approaches become part of our thinking discipline. We learn that the best solution isn't always the most sophisticated, but rather the one that's easiest to maintain. In many cases, throwing away code is a better decision than adding new lines of code.
+</p>
+										<p class="text-zinc-600 text-sm mt-2">
+Programming trains awareness of complexity. We learn that not everything can be solved at once. Therefore, modular, iterative, and scalable approaches become part of our thinking discipline. We learn that the best solution isn't always the most sophisticated, but rather the one that's easiest to maintain. In many cases, throwing away code is a better decision than adding new lines of code.
+</p>
+<p class="text-zinc-600 text-sm mt-2">
+Ultimately, programming is the process of logically organizing ideas into a form that can be tested, reviewed, and modified. Programming is a laboratory of the mind that allows us to experiment with reality. In the digital world, the ability to think systematically is not just an advantage—it's a fundamental necessity. Therefore, programming is more than a skill; it is a way of looking at the world that combines accuracy, clarity, and creativity in a single line of commands.
+</p>
+<p class="text-zinc-600 text-sm mt-2">
+However, if we dig deeper, programming has philosophical roots that align with mathematical thinking. Formal logic, set theory, and the concept of proof are not merely academic tools, but the very foundation of writing correct programs. In programming, we don't just make something "work," but also prove that what we create is valid according to rules we define ourselves. This aligns with classical mathematical thinking: that truth is built from axioms, derived through inference, and maintained through systemic consistency.
+
+</p>
+
+					<div class="mt-4 flex gap-3">
+						<Socials />
+					</div>
+				</section>
+
+				<!-- About -->
+				<section class="bg-white/90 border border-zinc-300 rounded-2xl p-6 col-span-full lg:col-span-2 backdrop-blur-md">
+					<div class="grid grid-cols-2 items-start gap-4">
+						<div>
+							<h2 class="text-lg font-semibold mb-2">About Me</h2>
+							<ul class="text-sm text-zinc-600 list-disc pl-4 space-y-1">
+								<li>JavaScript / Node.js / Rust</li>
+								<li>Astro, Svelte, React</li>
+								<li>Web3 & Smart Contracts</li>
+								<li>Cybersecurity & APIs</li>
+							</ul>
+						</div>
+						<div class="flex justify-end">
+							<Avatar />
+						</div>
+					</div>
+				</section>
+
+				<!-- Contact -->
+				<section class="bg-white/90 border border-zinc-300 rounded-2xl p-6 backdrop-blur-md">
+					<h2 class="font-semibold mb-1">Let’s work together!</h2>
+					<p class="text-sm text-zinc-600 italic">contact@youremail.com</p>
+					<p class="text-xs text-zinc-500 mt-2">Socials:</p>
+					<ul class="text-sm text-zinc-700 space-y-1">
+						<li>LinkedIn</li>
+						<li>GitHub</li>
+						<li>Discord</li>
+					</ul>
+				</section>
+				
+
+				<!-- Time -->
+				<section class="bg-white/90 border border-zinc-300 rounded-2xl p-6 text-center backdrop-blur-md">
+					<h2 class="text-xl mb-5">Time Zone</h2>
+					<p class="font-mono text-5xl" id="clock">--:--:--</p>
+				</section>
+
+			</main>
 		</div>
+
+		<script>
+			const clock = document.getElementById("clock");
+			setInterval(() => {
+				const now = new Date();
+				clock.textContent = now.toLocaleTimeString("en-US", { hour12: false });
+			}, 1000);
+		</script>
 	</body>
 </html>
