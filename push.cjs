@@ -18,7 +18,6 @@ async function main() {
         const jakartaTime = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' });
         const commitMessage = `Update at ${jakartaTime}`;
 
-        await runCommand("./mdbook build cheatsheet");
         await runCommand("git add .");
         await runCommand(`git commit -m "${commitMessage}"`);
         await runCommand("git push origin main");
