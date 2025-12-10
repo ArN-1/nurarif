@@ -5,17 +5,16 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# PENTING: Permissions yang benar
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# Hanya jalankan 1 deployment pada satu waktu
 concurrency:
   group: "pages"
   cancel-in-progress: false
-
-env:
-  BUILD_PATH: "."
 
 jobs:
   build:
@@ -32,32 +31,29 @@ jobs:
           cache: 'npm'
       
       - name: Setup Pages
-        id: pages
         uses: actions/configure-pages@v4
       
       - name: Install dependencies
         run: npm ci
-        working-directory: ${{ env.BUILD_PATH }}
       
       - name: Build with Astro
-        run: |
-          npm run build -- \
-            --site "${{ steps.pages.outputs.origin }}" \
-            --base "${{ steps.pages.outputs.base_path }}"
-        working-directory: ${{ env.BUILD_PATH }}
+        run: npm run build
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ${{ env.BUILD_PATH }}/dist
+          path: ./dist
 
   deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    
+    # PENTING: Environment untuk GitHub Pages
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
-    name: Deploy
+    
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
